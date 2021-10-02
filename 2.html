@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<style>
+    #imena {
+        height: 300px;
+        width: 400px;
+        background-color: blue;
+        margin-top: -10px;
+        padding-left: 8px;
+        padding-top: 15px;
+        border: 1px solid black;
+    }
+    
+    #imena2 {
+        display: none;
+    }
+    
+    #imena_mala {
+        margin-top: -8px;
+        color: white;
+        font-size: 16pt;
+    }
+    
+    #vreme {
+        margin-top: -18px;
+        color: yellow;
+        font-size: 11pt;
+    }
+</style>
+
+<body>
+    <div style="margin-top:5px; padding-left:15px; height:20px; width:100px; background-color:rgba(56, 45, 45, 0.103)">
+        <p style="margin-bottom: 5px; color:blue;" id="tekst">Unesite ime</p>
+    </div>
+    <input placeholder="ime" onchange="popuni()" style="margin-top:5px;" type="text" id="unos">
+    <br>
+    <button id="dugme" onmouseleave=boji2() onmouseenter="boji()" onclick="gledaj()" style="margin-top: 5px; color:gray;" type="button">Unesi</button>
+    <br>
+    <div style="margin-top: 100px;">
+        <p id="imena2">Imena: </p>
+        <div style="display: none;" id="imena">
+
+        </div>
+    </div>
+</body>
+
+<script>
+    //////////////////////////////
+    /////////Popunjavanje div
+
+    var uneto
+
+    function boji() {
+        document.getElementById('dugme').style.backgroundColor = "rgba(2, 2, 2, 0.353)";
+        document.getElementById('dugme').style.color = "white";
+    }
+
+    function boji2() {
+        document.getElementById('dugme').style.backgroundColor = "rgba(56, 45, 45, 0.103)";
+        document.getElementById('dugme').style.color = "gray";
+    }
+
+    function popuni() {
+
+        /////////////////////
+        /////////Postavljen sve na mala slova
+
+        uneto = "";
+        var duzina = 0;
+        let uneto2;
+        var y = 0;
+        uneto = document.getElementById('unos').value;
+        uneto = uneto.toLowerCase();
+
+        ///////////////////////
+        /////Prve praznine
+
+        for (y; y < uneto.length; y++) {
+            if (uneto[y] == " ") {
+
+            } else {
+                uneto2 = uneto[y].toUpperCase(); ////////////Prva nepraznina
+                break;
+            }
+        }
+
+        /////////////////////////////////
+        ///////Unos
+
+        for (let i = y + 1; i < uneto.length; i++) {
+            if (uneto[i] == " ") {
+                if (duzina == 1) { ///////////Slucaj vise praznina
+
+                } else {
+                    duzina = 1;
+                    uneto2 += " ";
+                    if (uneto.length == i + 1) {
+                        i += 1;
+                    } else {
+                        if (duzina == 1) {
+
+                        } else {
+                            uneto2 += uneto[i + 1].toUpperCase();
+                            i += 1;
+                            duzina = 0;
+                        }
+                    }
+                }
+            } else {
+                if (duzina == 1) {
+                    uneto2 += uneto[i].toUpperCase();
+                    duzina = 0;
+                } else {
+                    uneto2 += uneto[i];
+                    console.log("nesto ");
+                }
+            }
+        }
+        uneto = uneto2;
+
+    }
+
+    //////////////////////////
+    //////Prikaz 
+
+    function gledaj() {
+        document.getElementById("imena").style.display = "block";
+        document.getElementById("imena2").style.display = "block";
+        var paragraf = document.createElement("p");
+        var tekstP = document.createTextNode("Player: " + uneto);
+        paragraf.appendChild(tekstP);
+        paragraf.setAttribute("id", "imena_mala");
+        var div1 = document.getElementById("imena");
+        div1.appendChild(paragraf);
+
+        var vreme = new Date();
+        var vremeP = document.createElement("p");
+        var vremeT = document.createTextNode("Joined at: " + vreme.getHours() + ":" + vreme.getMinutes())
+        vremeP.appendChild(vremeT);
+        vremeP.setAttribute("id", "vreme");
+        div1.appendChild(vremeP);
+
+    }
+</script>
+
+</html>
