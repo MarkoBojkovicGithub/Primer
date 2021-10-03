@@ -38,7 +38,7 @@
     </div>
     <input placeholder="ime" onchange="popuni()" style="margin-top:5px;" type="text" id="unos">
     <br>
-    <button id="dugme" onmouseleave=boji2() onmouseenter="changeColor()" onclick="gledaj()" style="margin-top: 5px; color:gray;" type="button">Unesi</button>
+    <button id="dugme" onmouseleave=changeColor2() onmouseenter="changeColor()" onclick="gledaj()" style="margin-top: 5px; color:gray;" type="button">Unesi</button>
     <br>
     <div style="margin-top: 100px;">
         <p id="imena2">Imena: </p>
@@ -59,7 +59,7 @@
         document.getElementById('dugme').style.color = "white";
     }
 
-    function boji2() {
+    function changeColor2() {
         document.getElementById('dugme').style.backgroundColor = "rgba(56, 45, 45, 0.103)";
         document.getElementById('dugme').style.color = "gray";
     }
