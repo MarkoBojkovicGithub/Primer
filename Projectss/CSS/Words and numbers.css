@@ -1,0 +1,19 @@
+.inputCSS {
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+#resultParagraph {
+    position: fixed;
+    left: 200px;
+    top: 23px;
+}
+
+#resultNumber {
+    position: fixed;
+    left: 200px;
+    top: 130px;
+}
