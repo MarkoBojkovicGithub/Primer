@@ -1,0 +1,15 @@
+p {
+    color: blue;
+}
+
+.newListText {
+    float: left;
+}
+
+.colorLi:hover {
+    color: rgba(104, 98, 98, 0.9);
+}
+
+.colorLiChecked {
+    color: green;
+}

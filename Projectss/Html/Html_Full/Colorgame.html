@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body id="glavni" onkeydown="primeni(event)">
+    <input id="prva_boja" style="background-color:blue; margin-bottom:200px; padding-bottom:50px;"><br>
+    <input id="druga_boja" style="background-color:green; padding-bottom:50px;">
+    <button onclick="input1()" style="position: fixed; left:75px; top:160px;" id="prvi" type="button">Boja</button>
+    <button id="treci" style="position:fixed; left:80px; top:190px;">Zid</button>
+    <button id="drugi" style="position: fixed; left:60px; top:130px;">Zid</button>
+    <script>
+        var pomeraj = 0;
+        var pomeraj2 = 0;
+        var prva_bojab = "blue";
+        var druga_bojab = "green";
+
+
+        /////////////////////
+        //Pomeranje dugmeta
+
+        function primeni(event) {
+
+
+            var dugme = document.getElementById('prvi');
+            if (event.key == 'a') {
+                pomeraj -= 10;
+                if (proveraSudaraAPrvi() == true) {
+                    pomeraj += 10;
+                } else if (proveraSudaraADrugi() == true) {
+                    pomeraj += 10;
+                } else {
+                    if (pomeraj < -80) {
+                        pomeraj = -80;
+                    }
+                    dugme.style.marginLeft = pomeraj + "px";
+                }
+
+            }
+
+            if (event.key == 'd') {
+                pomeraj += 10;
+                if (proveraSudaraDPrvi() == true) {
+                    pomeraj -= 10;
+                } else if (proveraSudaraDDrugi() == true) {
+                    pomeraj -= 10;
+                } else {
+
+                    if (pomeraj > 75) {
+                        pomeraj = 75;
+                    }
+                    dugme.style.marginLeft = pomeraj + "px";
+                }
+
+            }
+
+            if (event.key == 'w') {
+                pomeraj2 -= 10;
+                if (proveraSudaraWPrvi() == true) {
+                    pomeraj2 += 10;
+                } else if (proveraSudaraWDrugi() == true) {
+                    pomeraj2 += 10;
+                } else {
+
+                    if (pomeraj2 < -160) {
+                        pomeraj2 = -160;
+                    }
+                    dugme.style.marginTop = pomeraj2 + "px";
+                    promeniBoju(dugme);
+                }
+
+            }
+
+            if (event.key == 's') {
+                pomeraj2 += 10;
+                if (pomerajSudaraSPrvi() == true) {
+                    pomeraj2 -= 10;
+                } else if (pomerajSudaraSDrugi() == true) {
+                    pomeraj2 -= 10;
+                } else {
+
+                    if (pomeraj2 > 175) {
+                        pomeraj2 = 175;
+                    }
+                    dugme.style.marginTop = pomeraj2 + "px";
+                    promeniBoju(dugme);
+                }
+            }
+        }
+
+        //////////////////////////////////////////////////////////////
+        ///Prvi zid
+
+        //////////////////////
+        ////Provera sudara WPrvi
+
+        function proveraSudaraWPrvi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetTop == (document.getElementById('drugi').offsetTop + 20)) {
+                if (document.getElementById('prvi').offsetLeft + 40 >= document.getElementById('drugi').offsetLeft) {
+                    if (document.getElementById('prvi').offsetLeft <= document.getElementById('drugi').offsetLeft + 30) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara SPrvi
+
+        function pomerajSudaraSPrvi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetTop == (document.getElementById('drugi').offsetTop - 20)) {
+                if (document.getElementById('prvi').offsetLeft + 40 >= document.getElementById('drugi').offsetLeft) {
+                    if (document.getElementById('prvi').offsetLeft <= document.getElementById('drugi').offsetLeft + 30) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara APrvi
+
+        function proveraSudaraAPrvi() {
+            let pom = 0;
+
+            if (document.getElementById('prvi').offsetLeft == (document.getElementById('drugi').offsetLeft + 35)) {
+                if (document.getElementById('prvi').offsetTop + 18 >= document.getElementById('drugi').offsetTop) {
+                    if (document.getElementById('prvi').offsetTop <= document.getElementById('drugi').offsetTop + 18) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara DPrvi
+
+        function proveraSudaraDPrvi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetLeft + 45 == (document.getElementById('drugi').offsetLeft)) {
+                if (document.getElementById('prvi').offsetTop + 18 >= document.getElementById('drugi').offsetTop) {
+                    if (document.getElementById('prvi').offsetTop <= document.getElementById('drugi').offsetTop + 18) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+        //////////////////////////////////////////////////
+        /////Zid 2
+
+        //////////////////////
+        ////Provera sudara WDrugi
+
+        function proveraSudaraWDrugi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetTop == (document.getElementById('treci').offsetTop + 20)) {
+                if (document.getElementById('prvi').offsetLeft + 40 >= document.getElementById('treci').offsetLeft) {
+                    if (document.getElementById('prvi').offsetLeft <= document.getElementById('treci').offsetLeft + 30) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara SDrugi
+
+        function pomerajSudaraSDrugi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetTop == (document.getElementById('treci').offsetTop - 20)) {
+                if (document.getElementById('prvi').offsetLeft + 40 >= document.getElementById('treci').offsetLeft) {
+                    if (document.getElementById('prvi').offsetLeft <= document.getElementById('treci').offsetLeft + 30) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara ADrugi
+
+        function proveraSudaraADrugi() {
+            let pom = 0;
+
+            if (document.getElementById('prvi').offsetLeft == (document.getElementById('treci').offsetLeft + 35)) {
+                if (document.getElementById('prvi').offsetTop + 18 >= document.getElementById('treci').offsetTop) {
+                    if (document.getElementById('prvi').offsetTop <= document.getElementById('treci').offsetTop + 18) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+        //////////////////////
+        ////Provera sudara DDrugi
+
+        function proveraSudaraDDrugi() {
+            let pom = 0;
+            if (document.getElementById('prvi').offsetLeft + 45 == (document.getElementById('treci').offsetLeft)) {
+                if (document.getElementById('prvi').offsetTop + 18 >= document.getElementById('treci').offsetTop) {
+                    if (document.getElementById('prvi').offsetTop <= document.getElementById('treci').offsetTop + 18) {
+                        return true;
+                    } else {
+                        false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
+
+
+        /////////////////
+        ///Promena boje dugmeta
+
+        function promeniBoju(dugme) {
+            if (pomeraj2 < -80) {
+                dugme.style.backgroundColor = prva_bojab;
+            }
+            if (pomeraj2 > 100.25) {
+                dugme.style.backgroundColor = druga_bojab;
+            }
+        }
+
+        //////////////////////
+        ///Promeni boju 
+
+        function input1() {
+            if (document.getElementById('prva_boja').value != '') {
+                prva_bojab = document.getElementById('prva_boja').value;
+                document.getElementById('prva_boja').style.backgroundColor = prva_bojab;
+            }
+            if (document.getElementById('druga_boja').value != '') {
+                druga_bojab = document.getElementById('druga_boja').value;
+                document.getElementById('druga_boja').style.backgroundColor = druga_bojab;
+            }
+        }
+    </script>
+</body>
+
+</html>

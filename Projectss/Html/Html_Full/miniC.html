@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<style>
+    .Dugme {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .DugmePodo {
+        height: 50px;
+        width: 104px;
+    }
+    
+    .Reset {
+        height: 35px;
+        width: 104px;
+    }
+</style>
+
+<body>
+    <div style="margin-top:5px; height:20px; width:212px; background-color:rgba(56, 45, 45, 0.103)">
+        <p style="text-align: center; margin-bottom: 5px; color:blue;" id="tekst">Unesite</p>
+    </div>
+    <input placeholder="broj" style="margin-top:5px; width:205px;" type="text" id="unos">
+
+    <p style="font-size:15px; margin-top: 5px; margin-bottom: 3px;">Cao, kako si</p>
+    <button class="Reset" onclick="resetuj()" type="button">Reset</button>
+    <button class="Reset" onclick="DugmeVrati()" type="button">Back space</button>
+
+
+
+    <div id="buttons">
+        <button type="button" onclick="Dugme7()" class="Dugme">7</button>
+        <button type="button" onclick="Dugme8()" class="Dugme">8</button>
+        <button type="button" onclick="Dugme9()" class="Dugme">9</button>
+        <button type="button" onclick="DugmePlus()" class="Dugme">+</button>
+        <br>
+        <button type="button" onclick="Dugme4()" class="Dugme">4</button>
+        <button type="button" onclick="Dugme5()" class="Dugme">5</button>
+        <button type="button" onclick="Dugme6()" class="Dugme">6</button>
+        <button type="button" onclick="DugmeMinus()" class="Dugme">-</button>
+        <br>
+        <button type="button" onclick="Dugme1()" class="Dugme">1</button>
+        <button type="button" onclick="Dugme2()" class="Dugme">2</button>
+        <button type="button" onclick="Dugme3()" class="Dugme">3</button>
+        <button class="Dugme">*</button>
+        <br>
+        <button type="button" onclick="Dugme0()" class="Dugme">0</button>
+        <button class="DugmePodo">/</button>
+        <button type="button" onclick="DugmeRezul()" class="Dugme">=</button>
+
+    </div>
+
+</body>
+
+<script>
+    //////////////////////////////
+    /////////Popunjavanje div
+
+    var vrednost;
+    var rezultat = 0;
+    var broj = "";
+    var sabiraj = false;
+    var oduzimaj = false;
+    var oduzimajMinus = false;
+    var endNumber = false;
+    var minusFirst = true;
+    var isFirst = false;
+    var storege = "";
+    var newRow = "";
+    var doneStorage = false;
+
+    document.getElementById('unos').disabled = true;
+
+    function resetuj() {
+        document.getElementById("unos").value = "";
+        vrednost = 0;
+        rezultat = 0;
+        broj = "";
+        var pom = "";
+        var pom2 = "";
+        var prvi = false;
+        var plus = false;
+        var minus = false;
+        endNumber = false;
+        firstMinus = false;
+        doneStorage = false;
+        storege = "";
+        newRow = "";
+    }
+
+    function boji() {
+        document.getElementById('dugme').style.backgroundColor = "rgba(2, 2, 2, 0.353) ";
+        document.getElementById('dugme').style.color = "white ";
+    }
+
+    function boji2() {
+        document.getElementById('dugme').style.backgroundColor = "rgba(56, 45, 45, 0.103) ";
+        document.getElementById('dugme').style.color = "gray ";
+    }
+
+
+
+    function Dugme1() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "1";
+            broj += "1";
+        }
+
+    }
+
+    function Dugme2() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "2";
+            broj += "2";
+        }
+    }
+
+    function Dugme3() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "3";
+            broj += "3";
+        }
+    }
+
+    function Dugme4() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "4";
+            broj += "4";
+        }
+    }
+
+    function Dugme5() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "5";
+            broj += "5";
+        }
+    }
+
+    function Dugme6() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "6";
+            broj += "6";
+        }
+    }
+
+    function Dugme7() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "7";
+            broj += "7";
+        }
+    }
+
+    function Dugme8() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "8";
+            broj += "8";
+        }
+    }
+
+    function Dugme9() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "9";
+            broj += "9";
+        }
+    }
+
+    function Dugme0() {
+        if (!endNumber) {
+            document.getElementById('unos').value += "0";
+            broj += "0";
+        }
+    }
+
+    function DugmePlus() {
+        if (!endNumber) {
+            if (broj.endsWith("+") || broj.endsWith("-") || broj.endsWith("*") || broj.endsWith("/") || broj.endsWith("=")) {
+
+            } else {
+                document.getElementById('unos').value += "+";
+                broj += "+";
+            }
+        }
+    }
+
+    function DugmeMinus() {
+        if (!endNumber) {
+            if (broj.endsWith("+") || broj.endsWith("-") || broj.endsWith("*") || broj.endsWith("/") || broj.endsWith("=")) {
+
+            } else {
+                document.getElementById('unos').value += "-";
+                broj += '-';
+            }
+        }
+    }
+
+    function DugmeVrati() {
+        if (!endNumber) {
+            var pomduz = document.getElementById("unos").value.length;
+            console.log(pomduz);
+            var stari = document.getElementById("unos").value;
+            var nov = "";
+            broj = "";
+            for (let pom = 0; pom < pomduz - 1; pom++) {
+                console.log(stari[pom]);
+                nov += stari[pom];
+                broj += stari[pom];
+            }
+            document.getElementById("unos").value = "";
+            document.getElementById("unos").value = nov;
+        }
+
+    }
+
+    function CheckFirst() {
+        if (broj[0] == '-') {
+            doneStorage = true;
+            for (let i2 = 1; i2 < broj.length; i2++) {
+                if (broj[i2] == '-' || broj[i2] == '+') {
+                    newRow = "0";
+                    newRow += broj.slice(i2, broj.length);
+
+                    break;
+                } else {
+                    storege += broj[i2];
+                }
+
+            }
+        }
+    }
+
+    function DugmeRezul() {
+        if (!endNumber) {
+            var pom = "";
+            var pom2 = "";
+            var prvi = false;
+            var plus = false;
+            var minus = false;
+
+            CheckFirst();
+            if (doneStorage == true) {
+                broj = newRow;
+            }
+            for (let i = 0; i < broj.length; i++) {
+                if (broj[i] == '+') {
+                    console.log(broj[i]);
+                    if (minus == true) {
+                        rezultat -= parseInt(pom);
+                        pom = "";
+                        plus = true;
+                        minus = false;
+                    } else {
+                        rezultat += parseInt(pom);
+                        console.log(rezultat);
+                        pom = "";
+                        plus = true;
+                        minus = false;
+                    }
+                } else if (broj[i] == '-') {
+                    if (prvi == false) {
+                        rezultat += parseInt(pom);
+                        console.log(rezultat);
+                        prvi = true;
+                        minus = true;
+                        plus = false;
+                        pom = "";
+                    } else if (plus == true) {
+                        rezultat += parseInt(pom);
+                        pom = "";
+                        plus = false;
+                        minus = true;
+                    } else {
+                        rezultat -= parseInt(pom);
+                        console.log(rezultat);
+                        pom = "";
+                        minus = true;
+                        plus = false;
+
+                    }
+                } else {
+                    if (broj.length == i + 1 && plus == true) {
+                        pom += broj[i];
+                        rezultat += parseInt(pom);
+                        console.log(rezultat);
+
+                    } else if (broj.length == i + 1 && minus == true) {
+                        pom += broj[i];
+                        rezultat -= parseInt(pom);
+                        console.log(rezultat);
+                    } else {
+                        pom += broj[i];
+                    }
+                }
+
+
+            }
+            document.getElementById("unos").value += "=";
+            if (doneStorage == true) {
+                rezultat -= storege;
+            }
+            document.getElementById("unos").value += rezultat;
+            endNumber = true;
+        }
+
+    }
+</script>
+
+</html>
