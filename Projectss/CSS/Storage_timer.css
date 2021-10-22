@@ -1,0 +1,10 @@
+.icon-size {
+    font-size: 50px;
+    background-color: white;
+}
+
+#baseball-icon {
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 15px;
+}
