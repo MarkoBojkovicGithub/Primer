@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="../../CSS/SingUp.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body id="bodyDiv" style="backgroundColor:white">
+    <div id="inputValue">
+        <h3>Sign up</h3>
+        <p class="UserName-and-Password" style="display:inline-block">Username</p>
+        <p id="Helper" style="display:inline-block">Need an account?</p>
+        <a href="Login.html">
+            <p id="Helper2" style="display:inline-block">&nbspLog in</p>
+        </a>
+        <input placeholder="Username" onchange="usernameText()" class="inputValues" id="username">
+        <p id="usernamePlaceHolder" class="holdplacers">text</p>
+
+        <p class="UserName-and-Password">Pasword</p>
+        <input placeholder="Pasword" onchange="paswordText()" class="inputValues" id="pasword">
+        <p id="paswordPlaceHolder" class="holdplacers">text</p>
+
+        <p class="UserName-and-Password">Email</p>
+        <input placeholder="Email" onchange="EmailText()" class="inputValues" id="email">
+        <p id="emailPlaceHolder" class="holdplacers">text</p>
+
+        <p class="UserName-and-Password">Phone</p>
+        <input placeholder="Phone" onchange="phoneText()" class="inputValues" id="phone">
+        <p id="phonePlaceHolder" class="holdplacers">text</p>
+
+        <button onclick="SendInfo()" id="clickIt">Sign up</button>
+
+        <a style="text-decoration: none;" href="Login.html">
+            <p id="lastP">Already a member?</p>
+        </a>
+
+    </div>
+</body>
+
+<script src="../../Javascipt/SignUp.js ">
+</script>
+
+</html>

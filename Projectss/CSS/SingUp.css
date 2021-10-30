@@ -13,7 +13,7 @@
     left: 37vw;
     top: 0vh;
     width: 360px;
-    height: 260px;
+    height: 440px;
     visibility: hidden;
 }
 
@@ -44,7 +44,7 @@ p.UserName-and-Password {
     font-size: 13px;
     font-weight: bolder;
     margin-bottom: 5px;
-    margin-right: 94px;
+    margin-right: 110px;
 }
 
 p.headParagraph {
@@ -68,9 +68,8 @@ p.holdplacers {
 #clickIt {
     border-radius: 25px;
     margin: 0px;
-    padding-right: 35px;
     line-height: 30px;
-    width: 325px;
+    width: 334px;
     text-align: center;
     align-content: center;
     border: 1.8px solid rgb(78, 78, 78);
@@ -81,9 +80,8 @@ p.holdplacers {
 
 #clickIt:hover {
     margin: 0px;
-    padding-right: 35px;
     line-height: 30px;
-    width: 325px;
+    width: 334px;
     text-align: center;
     align-content: center;
     border: 1.8px solid rgb(48, 47, 47);

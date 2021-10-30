@@ -8,19 +8,21 @@
 </head>
 
 <body id="bodyDiv" style="backgroundColor:white">
-    <div id="inputValue">
-        <h3>Log in</h3>
-        <p class="UserName-and-Password" style="display:inline-block">Username</p>
-        <p id="Helper" style="display:inline-block">Need an account?</p>
-        <p id="Helper2" style="display:inline-block">&nbspSign up</p>
-        <input placeholder="Username" onchange="usernameText()" class="inputValues" id="username">
-        <p id="usernamePlaceHolder" class="holdplacers">text</p>
-        <p class="UserName-and-Password">Pasword</p>
-        <input placeholder="Pasword" onchange="paswordText()" class="inputValues" id="pasword">
-        <p id="paswordPlaceHolder" class="holdplacers">text</p>
+    <div id="conteinerBody">
+        <div id="conteinerLeft">
+            <div class="boxesSpace">
+                <div onclick="ChangePositionBox1()" id="Box1"></div>
+                <div id="Box2"></div>
+            </div>
+            <div class="boxesSpace"></div>
+        </div>
+        <div id="headDiv">
 
-        <button onclick="SendInfo()" id="clickIt">Log in</button>
-        <p id="lastP">Forgot pasword?</p>
+        </div>
+        <div id="conteinerRight">
+            <div onclick="CheckPick()" id="LastBoxes" class="boxesSpace"></div>
+            <div class="boxesSpace"></div>
+        </div>
     </div>
 </body>
 

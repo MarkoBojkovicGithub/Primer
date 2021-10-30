@@ -1,132 +1,42 @@
-#inputValue {
-    border: 2px solid rgb(228, 221, 221);
-    border-radius: 12px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-left: 50px;
-    padding-bottom: 100px;
-    background-color: white;
-    position: fixed;
-    /*  left: 37vw;
-    top: 20vh;
-    */
-    left: 37vw;
-    top: 0vh;
-    width: 360px;
-    height: 260px;
-    visibility: hidden;
+#conteinerBody {
+    position: absolute;
+    width: 1400px;
+    height: 800px;
+    background-color: green;
+    display: flex;
 }
 
-h3 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: left;
-    margin-bottom: 25px;
+#conteinerLeft {
+    width: 200px;
+    height: 800px;
+    background-color: blue;
 }
 
-.inputValues {
-    margin-bottom: 0px;
-    border: 2px solid rgb(228, 221, 221);
-    width: 320px;
-    height: 38px;
-    border-radius: 3px;
+#conteinerRight {
+    width: 200px;
+    height: 800px;
+    background-color: blue;
 }
 
-.inputValues::placeholder {
-    padding-left: 5px;
-}
-
-p.UserName-and-Password {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0px;
-    margin-top: 0px;
-    color: rgb(78, 78, 78);
-    font-size: 13px;
-    font-weight: bolder;
-    margin-bottom: 5px;
-    margin-right: 94px;
-}
-
-p.headParagraph {
-    text-align: justify;
-    font-size: 14px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-p.holdplacers {
-    margin: 0px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 2px;
-    font-size: 10px;
-    visibility: hidden;
-    color: red;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#clickIt {
-    border-radius: 25px;
-    margin: 0px;
-    padding-right: 35px;
-    line-height: 30px;
-    width: 325px;
-    text-align: center;
-    align-content: center;
-    border: 1.8px solid rgb(78, 78, 78);
-    transition-duration: 200ms;
-    background-color: rgb(34, 145, 34);
-    color: white;
-}
-
-#clickIt:hover {
-    margin: 0px;
-    padding-right: 35px;
-    line-height: 30px;
-    width: 325px;
-    text-align: center;
-    align-content: center;
-    border: 1.8px solid rgb(48, 47, 47);
+#headDiv {
+    width: 1000px;
+    height: 800px;
     background-color: black;
-    color: white;
-    transition-duration: 1000ms;
-    border-radius: 2px;
 }
 
-#Helper {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0px;
-    margin-top: 0px;
-    color: rgb(78, 78, 78);
-    font-size: 10px;
-    font-weight: bolder;
-    margin-bottom: 5px;
+.boxesSpace {
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+    border-top: 2px solid black;
+    display: inline-flex;
 }
 
-#Helper2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0px;
-    margin-top: 0px;
-    color: green;
-    font-size: 11px;
-    font-weight: bolder;
-    margin-bottom: 5px;
-}
-
-#lastP {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0px;
-    margin-left: -40px;
+#Box1 {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    margin-left: 20px;
     margin-top: 20px;
-    color: black;
-    font-size: 10px;
-    font-weight: bolder;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-#bodyDiv {
-    background-repeat: no-repeat;
-    background-size: 1700px 1000px;
-    background-position: left top;
-    background-attachment: scroll;
 }
